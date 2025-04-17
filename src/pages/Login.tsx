@@ -6,8 +6,9 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import { ShieldAlert, User, Lock, Key, UserPlus, AlertTriangle } from "lucide-react";
+import { ShieldAlert, User, Lock, Key, UserPlus, AlertTriangle, Terminal } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { Checkbox } from "@/components/ui/checkbox";
 import AccessTerminal from "@/components/AccessTerminal";
 
 const Login = () => {
@@ -16,6 +17,7 @@ const Login = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [formError, setFormError] = useState("");
+  const [terminalMode, setTerminalMode] = useState(false);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,6 +49,41 @@ const Login = () => {
       }, 1500);
     }, 1000);
   };
+
+  if (terminalMode) {
+    return (
+      <div className="flex flex-col min-h-screen bg-background">
+        <ScrHeader />
+        <main className="flex-1 py-16 px-4">
+          <div className="container mx-auto max-w-4xl">
+            <Button 
+              variant="ghost" 
+              onClick={() => setTerminalMode(false)}
+              className="mb-6"
+            >
+              ← Вернуться к стандартному входу
+            </Button>
+            
+            <div className="text-center mb-8">
+              <ShieldAlert className="h-12 w-12 mx-auto text-scr-accent mb-4" />
+              <h1 className="text-3xl font-bold mb-2">SCR</h1>
+              <p className="text-lg text-muted-foreground">Secure. Control. Explore.</p>
+              <p className="text-sm mt-2">Терминальный режим доступа</p>
+            </div>
+            
+            <AccessTerminal />
+            
+            <div className="text-center mt-8 text-sm text-muted-foreground">
+              <p>Для входа используйте команду: login &lt;имя_пользователя&gt; &lt;пароль&gt;</p>
+              <p>Для регистрации используйте команду: register</p>
+              <p>Для получения справки используйте команду: help</p>
+            </div>
+          </div>
+        </main>
+        <ScrFooter />
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -99,7 +136,14 @@ const Login = () => {
                           <Label htmlFor="email">Электронная почта</Label>
                           <div className="relative">
                             <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                            <Input id="email" type="email" placeholder="сотрудник@scr.org" className="pl-9" required />
+                            <Input 
+                              id="email" 
+                              type="email" 
+                              placeholder="сотрудник@scr.org" 
+                              className="pl-9" 
+                              autoComplete="email"
+                              required 
+                            />
                           </div>
                         </div>
                         
@@ -107,7 +151,14 @@ const Login = () => {
                           <Label htmlFor="password">Пароль</Label>
                           <div className="relative">
                             <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                            <Input id="password" type="password" placeholder="••••••••" className="pl-9" required />
+                            <Input 
+                              id="password" 
+                              type="password" 
+                              placeholder="••••••••" 
+                              className="pl-9" 
+                              autoComplete="current-password"
+                              required 
+                            />
                           </div>
                         </div>
                         
@@ -115,9 +166,25 @@ const Login = () => {
                           <Label htmlFor="accessCode">Код доступа</Label>
                           <div className="relative">
                             <Key className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                            <Input id="accessCode" placeholder="SCR-ACCESS-####" className="pl-9" required />
+                            <Input 
+                              id="accessCode" 
+                              placeholder="SCR-ACCESS-####" 
+                              className="pl-9" 
+                              autoComplete="off"
+                              required 
+                            />
                           </div>
                           <p className="text-xs text-muted-foreground">Введите ваш персональный код доступа SCR</p>
+                        </div>
+
+                        <div className="flex items-center space-x-2 pt-2">
+                          <Checkbox id="remember" />
+                          <label
+                            htmlFor="remember"
+                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                          >
+                            Запомнить устройство
+                          </label>
                         </div>
                         
                         {formError && (
@@ -157,30 +224,70 @@ const Login = () => {
                       <div className="space-y-4">
                         <div className="space-y-2">
                           <Label htmlFor="fullName">ФИО</Label>
-                          <Input id="fullName" placeholder="Иванов Иван Иванович" required />
+                          <Input 
+                            id="fullName" 
+                            placeholder="Иванов Иван Иванович" 
+                            autoComplete="name"
+                            required 
+                          />
                         </div>
                         
                         <div className="space-y-2">
                           <Label htmlFor="regEmail">Электронная почта</Label>
-                          <Input id="regEmail" type="email" placeholder="ivan.ivanov@example.com" required />
+                          <Input 
+                            id="regEmail" 
+                            type="email" 
+                            placeholder="ivan.ivanov@example.com" 
+                            autoComplete="email"
+                            required 
+                          />
                         </div>
                         
                         <div className="space-y-2">
                           <Label htmlFor="regPassword">Пароль</Label>
-                          <Input id="regPassword" type="password" placeholder="Минимум 8 символов" required />
+                          <Input 
+                            id="regPassword" 
+                            type="password" 
+                            placeholder="Минимум 8 символов" 
+                            autoComplete="new-password"
+                            minLength={8}
+                            required 
+                          />
                         </div>
                         
                         <div className="space-y-2">
                           <Label htmlFor="confirmPassword">Подтверждение пароля</Label>
-                          <Input id="confirmPassword" type="password" placeholder="Повторите пароль" required />
+                          <Input 
+                            id="confirmPassword" 
+                            type="password" 
+                            placeholder="Повторите пароль" 
+                            autoComplete="new-password"
+                            minLength={8}
+                            required 
+                          />
                         </div>
                         
                         <div className="space-y-2">
                           <Label htmlFor="inviteCode">Код приглашения</Label>
-                          <Input id="inviteCode" placeholder="SCR-INVITE-####" required />
+                          <Input 
+                            id="inviteCode" 
+                            placeholder="SCR-INVITE-####" 
+                            autoComplete="off"
+                            required 
+                          />
                           <p className="text-xs text-muted-foreground">
                             Введите код приглашения от сотрудника SCR
                           </p>
+                        </div>
+
+                        <div className="flex items-center space-x-2 pt-2">
+                          <Checkbox id="terms" required />
+                          <label
+                            htmlFor="terms"
+                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                          >
+                            Я согласен с правилами и условиями SCR Foundation
+                          </label>
                         </div>
                         
                         {formError && (
@@ -214,7 +321,7 @@ const Login = () => {
               <Button 
                 variant="outline" 
                 className="w-full"
-                onClick={() => navigate('/terminal')}
+                onClick={() => setTerminalMode(true)}
               >
                 <Terminal className="mr-2 h-4 w-4" />
                 Доступ через терминал
@@ -225,11 +332,6 @@ const Login = () => {
               </p>
             </CardFooter>
           </Card>
-          
-          <div className="mt-10">
-            <h2 className="text-xl font-bold mb-4">Альтернативный доступ</h2>
-            <AccessTerminal />
-          </div>
         </div>
       </main>
       
@@ -237,13 +339,5 @@ const Login = () => {
     </div>
   );
 };
-
-// Иконка терминала
-const Terminal = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <polyline points="4 17 10 11 4 5" />
-    <line x1="12" y1="19" x2="20" y2="19" />
-  </svg>
-);
 
 export default Login;

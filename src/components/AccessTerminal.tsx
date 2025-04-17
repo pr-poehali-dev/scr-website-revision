@@ -2,12 +2,14 @@ import { useState } from "react";
 import { Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useNavigate } from "react-router-dom";
 
 interface AccessTerminalProps {
   onAuthenticate?: (success: boolean) => void;
 }
 
 const AccessTerminal = ({ onAuthenticate }: AccessTerminalProps) => {
+  const navigate = useNavigate();
   const [input, setInput] = useState("");
   const [output, setOutput] = useState<string[]>([
     "SCR ТЕРМИНАЛ ДОСТУПА v3.72",
@@ -31,10 +33,25 @@ const AccessTerminal = ({ onAuthenticate }: AccessTerminalProps) => {
         addOutput("ДОБРО ПОЖАЛОВАТЬ, СОТРУДНИК.");
         setAuthenticated(true);
         if (onAuthenticate) onAuthenticate(true);
+        setTimeout(() => {
+          navigate('/objects');
+        }, 1500);
       }, 1500);
+    } else if (input.toLowerCase().includes("register") || input.toLowerCase().includes("регистрация")) {
+      addOutput("ИНИЦИАЛИЗАЦИЯ ПРОТОКОЛА РЕГИСТРАЦИИ...");
+      setTimeout(() => {
+        addOutput("ВВЕДИТЕ ПЕРСОНАЛЬНЫЙ КОД ПРИГЛАШЕНИЯ:");
+        setTimeout(() => {
+          addOutput("КОД ПРИНЯТ. СОЗДАНИЕ УЧЕТНОЙ ЗАПИСИ...");
+          setTimeout(() => {
+            addOutput("РЕГИСТРАЦИЯ ЗАВЕРШЕНА. ВОЙДИТЕ В СИСТЕМУ КОМАНДОЙ 'login'");
+          }, 1500);
+        }, 2000);
+      }, 1000);
     } else if (input.toLowerCase().includes("help") || input.toLowerCase().includes("помощь")) {
       addOutput("ДОСТУПНЫЕ КОМАНДЫ:");
       addOutput("login <username> <password> - авторизация в системе");
+      addOutput("register - регистрация нового сотрудника");
       addOutput("help - вывод справки");
       addOutput("clear - очистка консоли");
     } else if (input.toLowerCase().includes("clear") || input.toLowerCase().includes("очистить")) {
@@ -44,6 +61,7 @@ const AccessTerminal = ({ onAuthenticate }: AccessTerminalProps) => {
       ]);
     } else {
       addOutput("ОШИБКА: НЕИЗВЕСТНАЯ КОМАНДА");
+      addOutput("ВВЕДИТЕ 'help' ДЛЯ ПОЛУЧЕНИЯ СПИСКА КОМАНД");
     }
     
     setInput("");
@@ -56,7 +74,7 @@ const AccessTerminal = ({ onAuthenticate }: AccessTerminalProps) => {
         <h3 className="font-mono font-bold">SCR Terminal</h3>
       </div>
       
-      <div className="terminal-text h-64 overflow-y-auto mb-4 font-mono text-sm">
+      <div className="terminal-text h-64 overflow-y-auto mb-4 font-mono text-sm text-green-500 bg-black p-3 rounded">
         {output.map((line, index) => (
           <div key={index} className="mb-1">
             {line}
@@ -73,6 +91,7 @@ const AccessTerminal = ({ onAuthenticate }: AccessTerminalProps) => {
             onKeyDown={(e) => e.key === "Enter" && handleCommand()}
             className="font-mono bg-black text-green-500 border-green-900 focus:border-green-500"
             placeholder="Введите команду..."
+            autoFocus
           />
           <Button 
             onClick={handleCommand}
