@@ -41,7 +41,7 @@ const mockObjects: Record<string, ScrObject> = {
     containmentClass: "Минимальный",
     disruptionClass: "Нет",
     riskClass: "Минимальный",
-    shortDescription: "Небольшое устройство, всегда указывающее в направлении ближайшего аномального объекта.",
+    shortDescription: "Небольшое устройство, всегда указыв▨█▨█▨ ▨ ▨▨▨▨▨▨▨▨▨▨▨ ▨▨▨▨▨▨▨▨▨█ ▨█▨▨▨▨▨.",
     accessLevel: 2,
     imageUrl: "/placeholder.svg"
   },
@@ -63,7 +63,7 @@ const mockObjects: Record<string, ScrObject> = {
     containmentClass: "Специальный",
     disruptionClass: "Класс-1",
     riskClass: "Средний",
-    shortDescription: "Старинный том, содержащий информацию о других SCR-объектах и способный изменять собственное содержимое.",
+    shortDescription: "Старинная кожаная книга без названия, содержащая информацию о других SCR-объектах. Текст в книге периодически изменяется.",
     accessLevel: 4,
     imageUrl: "/placeholder.svg"
   },
@@ -74,7 +74,7 @@ const mockObjects: Record<string, ScrObject> = {
     containmentClass: "Темпоральный",
     disruptionClass: "Класс-2",
     riskClass: "Высокий",
-    shortDescription: "Локализованная область, где события повторяются в цикле длительностью 24 часа.",
+    shortDescription: "Пространственно-временная аномалия диаметром около 500 метров. Внутри аномалии время непрерывно повторяется в 24-часовых циклах.",
     accessLevel: 3,
     imageUrl: "/placeholder.svg"
   }

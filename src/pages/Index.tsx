@@ -103,8 +103,117 @@ const Index = () => {
           </div>
         </section>
         
+        {/* Деятельность */}
+        <section className="py-12 px-4 bg-gray-50">
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="text-2xl font-bold text-center mb-8">Наша деятельность</h2>
+            
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="mt-1 bg-scr-primary p-2 rounded-full">
+                  <SearchIcon className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg mb-1">Поиск и обнаружение</h3>
+                  <p className="text-sm text-gray-700">
+                    Непрерывный мониторинг глобальных сетей данных и полевые экспедиции для выявления новых SCR-объектов и аномальных явлений.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <div className="mt-1 bg-scr-primary p-2 rounded-full">
+                  <ShieldCheck className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg mb-1">Разработка протоколов</h3>
+                  <p className="text-sm text-gray-700">
+                    Создание индивидуальных методов содержания для каждого SCR-объекта с учетом его уникальных свойств и потенциальных угроз.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <div className="mt-1 bg-scr-primary p-2 rounded-full">
+                  <Microscope className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg mb-1">Научные исследования</h3>
+                  <p className="text-sm text-gray-700">
+                    Междисциплинарное изучение SCR-объектов с привлечением специалистов из различных научных областей.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <div className="mt-1 bg-scr-primary p-2 rounded-full">
+                  <Globe className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg mb-1">Внешние связи</h3>
+                  <p className="text-sm text-gray-700">
+                    Взаимодействие с правительствами и иными организациями для обеспечения ресурсов и координации действий в случае аномальных инцидентов.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Классификация (краткая) */}
+        <section className="py-16 px-4 bg-scr-dark text-white">
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="text-2xl font-bold text-center mb-8">Система классификации SCR-объектов</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-scr-primary/30 p-4 rounded-lg border border-scr-safe">
+                <div className="flex items-center mb-3">
+                  <div className="bg-scr-safe p-1 w-8 h-8 flex items-center justify-center rounded-md font-bold text-white mr-2">S</div>
+                  <h3 className="font-bold">SAFE</h3>
+                </div>
+                <p className="text-sm text-gray-300">Объекты, которые легко содержатся и не требуют особых мер безопасности.</p>
+              </div>
+              
+              <div className="bg-scr-primary/30 p-4 rounded-lg border border-scr-normal">
+                <div className="flex items-center mb-3">
+                  <div className="bg-scr-normal p-1 w-8 h-8 flex items-center justify-center rounded-md font-bold text-black mr-2">N</div>
+                  <h3 className="font-bold">NORMAL</h3>
+                </div>
+                <p className="text-sm text-gray-300">Объекты с непредсказуемым поведением, требующие повышенного внимания.</p>
+              </div>
+              
+              <div className="bg-scr-primary/30 p-4 rounded-lg border border-scr-keter">
+                <div className="flex items-center mb-3">
+                  <div className="bg-scr-keter p-1 w-8 h-8 flex items-center justify-center rounded-md font-bold text-white mr-2">K</div>
+                  <h3 className="font-bold">KETER</h3>
+                </div>
+                <p className="text-sm text-gray-300">Крайне опасные объекты, трудно поддающиеся содержанию и представляющие угрозу для реальности.</p>
+              </div>
+              
+              <div className="bg-scr-primary/30 p-4 rounded-lg border border-scr-archiv">
+                <div className="flex items-center mb-3">
+                  <div className="bg-scr-archiv p-1 w-8 h-8 flex items-center justify-center rounded-md font-bold text-white mr-2">A</div>
+                  <h3 className="font-bold">ARCHIV</h3>
+                </div>
+                <p className="text-sm text-gray-300">Специальные объекты, используемые для сдерживания других аномалий.</p>
+              </div>
+            </div>
+            
+            <div className="text-center mt-8">
+              <Button
+                variant="outline"
+                className="border-white text-white hover:bg-scr-secondary"
+                onClick={() => navigate('/objects')}
+              >
+                <Database className="mr-2 h-4 w-4" />
+                Просмотреть объекты
+              </Button>
+            </div>
+          </div>
+        </section>
+        
         {/* Призыв к действию */}
-        <section className="bg-scr-dark text-white py-12 px-4">
+        <section className="bg-scr-secondary text-white py-12 px-4">
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-2xl font-bold mb-4">Станьте частью защиты человечества</h2>
             <p className="mb-6">
@@ -125,5 +234,39 @@ const Index = () => {
     </div>
   );
 };
+
+// Дополнительные иконки для секции "Деятельность"
+const SearchIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <circle cx="11" cy="11" r="8" />
+    <path d="m21 21-4.3-4.3" />
+  </svg>
+);
+
+const ShieldCheck = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+    <path d="m9 12 2 2 4-4" />
+  </svg>
+);
+
+const Microscope = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M6 18h8" />
+    <path d="M3 22h18" />
+    <path d="M14 22a7 7 0 1 0 0-14h-1" />
+    <path d="M9 14h2" />
+    <path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z" />
+    <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" />
+  </svg>
+);
+
+const Globe = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <circle cx="12" cy="12" r="10" />
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+    <path d="M2 12h20" />
+  </svg>
+);
 
 export default Index;

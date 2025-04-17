@@ -10,6 +10,7 @@ import ObjectDetail from "./pages/ObjectDetail";
 import Personnel from "./pages/Personnel";
 import Login from "./pages/Login";
 import Search from "./pages/Search";
+import History from "./pages/History";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/personnel" element={<Personnel />} />
           <Route path="/login" element={<Login />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/history" element={<History />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

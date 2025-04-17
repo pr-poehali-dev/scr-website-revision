@@ -1,13 +1,13 @@
 import ScrHeader from "@/components/ScrHeader";
 import ScrFooter from "@/components/ScrFooter";
-import SrcTeamCard, { SrcTeam } from "@/components/SrcTeamCard";
+import ScrTeamCard from "@/components/ScrTeamCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { Users, UserPlus, Shield, BookOpen, FileText } from "lucide-react";
 
-// Примеры команд SRC
-const mockTeams: SrcTeam[] = [
+// Примеры команд SCR в соответствии с лором
+const mockTeams = [
   {
     id: "Альфа-9",
     name: "Альфа-9",
@@ -63,7 +63,7 @@ const Personnel = () => {
               </TabsTrigger>
               <TabsTrigger value="teams" className="flex items-center gap-1">
                 <Shield className="h-4 w-4" />
-                SRC Команды
+                Н-МОГ
               </TabsTrigger>
               <TabsTrigger value="careers" className="flex items-center gap-1">
                 <UserPlus className="h-4 w-4" />
@@ -169,16 +169,16 @@ const Personnel = () => {
             <TabsContent value="teams">
               <div className="space-y-6">
                 <div className="prose max-w-none">
-                  <h2 className="text-2xl font-bold mb-4">Специальные Реагирующие Команды (SRC)</h2>
+                  <h2 className="text-2xl font-bold mb-4">Специальные Реагирующие Команды (Н-МОГ)</h2>
                   <p className="mb-6">
-                    SRC — это специализированные мобильные группы, обученные реагировать на различные типы аномальных угроз.
-                    Каждая SRC имеет свою специализацию и кодовое наименование.
+                    Н-МОГ — это специализированные мобильные группы, обученные реагировать на различные типы аномальных угроз.
+                    Каждая Н-МОГ имеет свою специализацию и кодовое наименование.
                   </p>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {mockTeams.map((team) => (
-                    <SrcTeamCard key={team.id} team={team} />
+                    <ScrTeamCard key={team.id} team={team} />
                   ))}
                 </div>
                 
@@ -189,7 +189,7 @@ const Personnel = () => {
                       <div>
                         <h3 className="text-xl font-bold mb-2">Доступ ограничен</h3>
                         <p>
-                          Дополнительная информация о составе и операциях SRC команд доступна сотрудникам с уровнем допуска 3 и выше.
+                          Дополнительная информация о составе и операциях Н-МОГ команд доступна сотрудникам с уровнем допуска 3 и выше.
                           Для повышения уровня допуска обратитесь к вашему руководителю отдела.
                         </p>
                       </div>
@@ -258,7 +258,7 @@ const Personnel = () => {
                   </Card>
                 </div>
                 
-                <Card className="bg-scr-secondary text-white mt-6">
+                <Card className="bg-scr-secondary text-white mt-8">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
                       <UserPlus className="h-8 w-8 text-white flex-shrink-0" />

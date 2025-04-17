@@ -131,6 +131,17 @@ const Objects = () => {
             </div>
           </div>
           
+          <div className="mb-8 p-4 border-l-4 border-scr-accent bg-gray-50">
+            <h2 className="text-lg font-semibold mb-1">Классификация SCR-объектов</h2>
+            <p className="text-sm text-gray-700">
+              SCR использует систему классификации для определения уровня опасности и мер содержания:
+              <span className="font-medium"> SAFE</span> - легко содержатся;
+              <span className="font-medium"> NORMAL</span> - требуют повышенного внимания;
+              <span className="font-medium"> KETER</span> - чрезвычайно опасны и трудно содержатся;
+              <span className="font-medium"> ARCHIV</span> - используются для сдерживания других объектов.
+            </p>
+          </div>
+          
           {filteredObjects.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredObjects.map((object) => (

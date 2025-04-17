@@ -1,6 +1,8 @@
 import { ShieldAlert } from "lucide-react";
 
 const ScrFooter = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-scr-dark text-white py-8 mt-auto">
       <div className="container mx-auto px-4">
@@ -15,7 +17,7 @@ const ScrFooter = () => {
           
           <div className="text-center md:text-right">
             <p className="text-sm opacity-70">Доступ к этому терминалу ограничен.</p>
-            <p className="text-xs opacity-50 mt-1">SCR Foundation &copy; {new Date().getFullYear()}</p>
+            <p className="text-xs opacity-50 mt-1">SCR Foundation &copy; {currentYear}</p>
           </div>
         </div>
         
