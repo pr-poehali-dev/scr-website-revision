@@ -6,7 +6,7 @@ export default {
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
+		"./src/**/*.{ts,tsx}"
 	],
 	prefix: "",
 	theme: {
@@ -61,6 +61,18 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// SCR theme colors
+				scr: {
+					primary: '#192F4A',      // темно-синий
+					secondary: '#0A4275',    // синий
+					accent: '#C10F0F',       // красный для акцента
+					dark: '#0C1E32',         // очень темно-синий для фона
+					light: '#E8F0F7',        // светлый для фона и текста
+					keter: '#C10F0F',        // красный для класса Keter
+					safe: '#2A7B27',         // зеленый для класса Safe
+					normal: '#EFB700',       // желтый для класса Normal
+					archiv: '#6C757D',       // серый для класса Archiv
 				}
 			},
 			borderRadius: {
