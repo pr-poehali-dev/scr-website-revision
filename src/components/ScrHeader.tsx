@@ -15,7 +15,7 @@ const ScrHeader = () => {
             <ShieldAlert className="h-8 w-8 text-scr-accent" />
             <div>
               <h1 className="scr-logo text-xl md:text-2xl font-bold">SCR</h1>
-              <p className="text-xs opacity-80">Secure. Control. Research.</p>
+              <p className="text-xs opacity-80">Secure. Control. Explore.</p>
             </div>
           </div>
 

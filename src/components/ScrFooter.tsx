@@ -11,7 +11,7 @@ const ScrFooter = () => {
             <ShieldAlert className="h-6 w-6 text-scr-accent" />
             <div>
               <h2 className="scr-logo text-lg font-bold">SCR</h2>
-              <p className="text-xs opacity-80">Secure. Control. Research.</p>
+              <p className="text-xs opacity-80">Secure. Control. Explore.</p>
             </div>
           </div>
           

@@ -25,7 +25,7 @@ const Index = () => {
           <div className="container mx-auto max-w-4xl text-center">
             <ShieldAlert className="h-16 w-16 mx-auto mb-4 text-scr-accent" />
             <h1 className="scr-logo text-4xl md:text-5xl font-bold mb-4">SCR Foundation</h1>
-            <p className="text-xl mb-8">Secure. Control. Research.</p>
+            <p className="text-xl mb-8">Secure. Control. Explore.</p>
             <p className="text-lg mb-8 max-w-2xl mx-auto">
               Защита человечества от аномальных угроз и сохранение стабильности реальности.
             </p>
@@ -65,7 +65,7 @@ const Index = () => {
                       <Lock className="h-8 w-8 text-white" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-center mb-2">Сокрытие</h3>
+                  <h3 className="text-xl font-bold text-center mb-2">Secure</h3>
                   <p className="text-sm text-center">
                     Защита общественности от информации о SCR-объектах и поддержание тайны существования аномалий.
                   </p>
@@ -79,7 +79,7 @@ const Index = () => {
                       <AlertTriangle className="h-8 w-8 text-white" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-center mb-2">Содержание</h3>
+                  <h3 className="text-xl font-bold text-center mb-2">Control</h3>
                   <p className="text-sm text-center">
                     Разработка безопасных протоколов для изоляции и контроля SCR-объектов различных классов опасности.
                   </p>
@@ -93,7 +93,7 @@ const Index = () => {
                       <FileText className="h-8 w-8 text-white" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-center mb-2">Исследование</h3>
+                  <h3 className="text-xl font-bold text-center mb-2">Explore</h3>
                   <p className="text-sm text-center">
                     Изучение природы и свойств SCR-объектов для понимания аномальных явлений и потенциального использования.
                   </p>
